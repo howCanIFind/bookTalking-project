@@ -6,8 +6,6 @@ import lombok.Getter;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "dtype")
 @Getter
 public abstract class Book {
 
