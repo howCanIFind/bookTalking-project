@@ -66,5 +66,4 @@ public class BookService {
         return BookRespListDto.builder().bookRespDtoList(bookRespDtos).build();
     }
 
-
 }

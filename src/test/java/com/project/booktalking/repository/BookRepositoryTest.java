@@ -61,7 +61,7 @@ class BookRepositoryTest {
     }
 
     // 책 한건 보기
-//    @Sql("classpath:db/tableInit.sql")
+    @Sql("classpath:db/tableInit.sql")
     @Test
     public void 책한건보기_테스트() {
         // given
@@ -71,10 +71,13 @@ class BookRepositoryTest {
         String author = "author";
         String summary = "summary";
         String companyName = "companyName";
-        System.out.println("f : " + bookRepository.findById(1L).isPresent());
+//        System.out.println("f : " + bookRepository.findById(1L).isPresent());
+
+        List<Book> all = bookRepository.findAll();
+        System.out.println("값" + all.get(0).getId());
 
         // when
-        Book book = bookRepository.findById(1L).get();
+        Book book = bookRepository.findById(4L).get();
 
 
         // then
