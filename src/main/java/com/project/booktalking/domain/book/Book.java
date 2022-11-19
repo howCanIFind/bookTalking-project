@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -23,6 +25,8 @@ public class Book {
 
     private String companyName;
 
+    @OneToMany(mappedBy = "book")
+    private List<Memo> memos = new ArrayList<>();
 
     protected Book() {
 
