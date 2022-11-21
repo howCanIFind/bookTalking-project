@@ -6,10 +6,10 @@ import java.util.List;
 
 public class BookRespListDto {
 
-    List<BookRespDto> bookRespDtoList;
+    List<BookRespDto> bookList;
 
     @Builder
-    public BookRespListDto(List<BookRespDto> bookRespDtoList) {
-        this.bookRespDtoList = bookRespDtoList;
+    public BookRespListDto(List<BookRespDto> bookList) {
+        this.bookList = bookList;
     }
 }

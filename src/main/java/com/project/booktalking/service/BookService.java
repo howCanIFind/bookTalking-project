@@ -63,7 +63,7 @@ public class BookService {
         List<BookRespDto> bookRespDtos = bookRepository.findAll().stream()
                 .map(Book::toDto)
                 .collect(Collectors.toList());
-        return BookRespListDto.builder().bookRespDtoList(bookRespDtos).build();
+        return BookRespListDto.builder().bookList(bookRespDtos).build();
     }
 
 }
