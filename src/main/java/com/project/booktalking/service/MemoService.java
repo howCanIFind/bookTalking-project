@@ -55,6 +55,19 @@ public class MemoService {
     }
 
     // 메모 삭제하기
+    public void deleteMemo(Long id) {
+        memoRepository.deleteById(id);
+    }
 
     // 메모 수정하기
+    public MemoRespDto updateMemo(Long id, MemoReqDto memoReqDto) {
+        Optional<Memo> memoOp = memoRepository.findById(id);
+        if (memoOp.isPresent()) {
+            Memo memoPs = memoOp.get();
+            memoPs.update(memoReqDto);
+            return memoPs.toRespDto();
+        } else {
+            throw new RuntimeException("해당 책이 존재하지 않습니다.");
+        }
+    }
 }

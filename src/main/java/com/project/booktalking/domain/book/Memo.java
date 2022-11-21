@@ -1,5 +1,6 @@
 package com.project.booktalking.domain.book;
 
+import com.project.booktalking.web.dto.MemoReqDto;
 import com.project.booktalking.web.dto.MemoRespDto;
 import lombok.Builder;
 
@@ -9,7 +10,7 @@ import javax.persistence.*;
 public class Memo {
 
     @Id @GeneratedValue
-    private String id;
+    private Long id;
 
     private String content;
 
@@ -29,7 +30,12 @@ public class Memo {
 
     public MemoRespDto toRespDto() {
         return MemoRespDto.builder()
+                .memoId(id)
                 .content(content)
                 .build();
+    }
+
+    public void update(MemoReqDto memoReqDto) {
+        this.content = memoReqDto.getContent();
     }
 }

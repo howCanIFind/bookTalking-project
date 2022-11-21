@@ -4,10 +4,13 @@ import lombok.Builder;
 
 public class MemoRespDto {
 
+    private Long memoId;
+
     private String content;
 
     @Builder
-    public MemoRespDto(String content) {
+    public MemoRespDto(Long memoId, String content) {
+        this.memoId = memoId;
         this.content = content;
     }
 }
