@@ -1,7 +1,6 @@
 package com.project.booktalking.repository;
 
 import com.project.booktalking.domain.book.Book;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +60,7 @@ class BookRepositoryTest {
     }
 
     // 책 한건 보기
-    @Sql("classpath:db/tableInit.sql")
+    @Sql("classpath:db/bookTableInit.sql")
     @Test
     public void 책한건보기_테스트() {
         // given
@@ -126,7 +125,7 @@ class BookRepositoryTest {
 //    }
 
     // 책 삭제
-    @Sql("classpath:db/tableInit.sql")
+    @Sql("classpath:db/bookTableInit.sql")
     @Test
     public void 책삭제_테스트() {
         // given

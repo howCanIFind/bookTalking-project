@@ -75,7 +75,18 @@ class MemoRepositoryTest {
 
     // 조회
     @Test
-    public void 메모목록조회_테스트() {
+    public void 메모조회_테스트() {
+        // given
+        
+
+        // when
+
+        // then
+    }
+
+
+    @Test
+    public void 메모목록조회byBook_테스트() {
 
     }
 
