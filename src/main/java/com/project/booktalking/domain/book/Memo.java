@@ -3,10 +3,12 @@ package com.project.booktalking.domain.book;
 import com.project.booktalking.web.dto.MemoReqDto;
 import com.project.booktalking.web.dto.MemoRespDto;
 import lombok.Builder;
+import lombok.Getter;
 
 import javax.persistence.*;
 
 @Entity
+@Getter
 public class Memo {
 
     @Id @GeneratedValue
