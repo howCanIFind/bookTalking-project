@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -77,17 +79,30 @@ class MemoRepositoryTest {
     @Test
     public void 메모조회_테스트() {
         // given
-        
+        Long memoId = 2L;
+
+        String content = "content";
+
+        String name = "bookName";
+        String author = "author";
+        String summary = "summary";
+        String companyName = "companyName";
 
         // when
+        Memo memoPs = memoRepository.findById(memoId).get();
 
         // then
+        assertThat(content).isEqualTo(memoPs.getContent());
+        assertThat(name).isEqualTo(memoPs.getBook().getName());
+        assertThat(author).isEqualTo(memoPs.getBook().getAuthor());
+        assertThat(summary).isEqualTo(memoPs.getBook().getSummary());
+        assertThat(companyName).isEqualTo(memoPs.getBook().getCompanyName());
     }
 
 
     @Test
     public void 메모목록조회byBook_테스트() {
-
+        
     }
 
     // 삭제
