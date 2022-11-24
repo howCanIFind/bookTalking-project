@@ -102,7 +102,30 @@ class MemoRepositoryTest {
 
     @Test
     public void 메모목록조회byBook_테스트() {
-        
+        // given
+        String content = "content";
+
+        String name = "bookName";
+        String author = "author";
+        String summary = "summary";
+        String companyName = "companyName";
+
+        List<Book> all = bookRepository.findAll();
+        for (Book book : all) {
+            System.out.println("book = " + book.getId());
+        }
+
+        Book book = bookRepository.findById(7L).get();
+
+        // when
+        List<Memo> memoList = memoRepository.findAllByBook(book);
+
+        // then
+        assertThat(content).isEqualTo(memoList.get(0).getContent());
+        assertThat(name).isEqualTo(memoList.get(0).getBook().getName());
+        assertThat(author).isEqualTo(memoList.get(0).getBook().getAuthor());
+        assertThat(summary).isEqualTo(memoList.get(0).getBook().getSummary());
+        assertThat(companyName).isEqualTo(memoList.get(0).getBook().getCompanyName());
     }
 
     // 삭제
