@@ -2,7 +2,7 @@ package com.project.booktalking.repository;
 
 import com.project.booktalking.domain.book.Book;
 import com.project.booktalking.domain.book.Memo;
-import org.assertj.core.api.Assertions;
+import com.project.booktalking.web.dto.MemoReqDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -110,12 +110,7 @@ class MemoRepositoryTest {
         String summary = "summary";
         String companyName = "companyName";
 
-        List<Book> all = bookRepository.findAll();
-        for (Book book : all) {
-            System.out.println("book = " + book.getId());
-        }
-
-        Book book = bookRepository.findById(7L).get();
+        Book book = bookRepository.findAll().get(0);
 
         // when
         List<Memo> memoList = memoRepository.findAllByBook(book);
@@ -129,8 +124,35 @@ class MemoRepositoryTest {
     }
 
     // 삭제
+    @Test
+    public void 메모삭제_테스트() {
+        // given
+        Long id = memoRepository.findAll().get(0).getId();
+
+        // when
+        memoRepository.deleteById(id);
+
+        // then
+        assertFalse(bookRepository.findById(id).isPresent());
+    }
 
     // 수정
+    @Test
+    public void 메모수정_테스트() {
+        // given
+        Long memoId = memoRepository.findAll().get(0).getId();
+
+        String content = "content 수정";
+        MemoReqDto memoReqDto = new MemoReqDto(content);
+
+        // when
+        Memo memo = memoRepository.findById(memoId).get();
+        memo.update(memoReqDto);
+
+        // then
+        assertThat(content).isEqualTo(memo.getContent());
+
+    }
 
 
 }
