@@ -1,5 +1,6 @@
 package com.project.booktalking.domain;
 
+import com.project.booktalking.web.dto.MemberDto;
 import lombok.Getter;
 
 import javax.persistence.Entity;
@@ -14,6 +15,16 @@ public class Member {
     private Long id;
 
     private String username;
+
+    private String password;
+
+    private String email;
+
+    private String role; //ROLE_USER, ROLE_ADMIN
+
+    private String provider;
+
+    private String providerId;
 
 
 }

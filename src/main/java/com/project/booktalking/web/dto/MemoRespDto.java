@@ -1,7 +1,9 @@
 package com.project.booktalking.web.dto;
 
 import lombok.Builder;
+import lombok.Getter;
 
+@Getter
 public class MemoRespDto {
 
     private Long memoId;

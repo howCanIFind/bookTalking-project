@@ -14,6 +14,13 @@ public class BookReqDto {
 
     private String companyName;
 
+    public BookReqDto(String name, String author, String summary, String companyName) {
+        this.name = name;
+        this.author = author;
+        this.summary = summary;
+        this.companyName = companyName;
+    }
+
     public Book toBook() {
         return Book.builder()
                 .name(name)
